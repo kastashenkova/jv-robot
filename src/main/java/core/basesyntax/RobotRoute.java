@@ -2,7 +2,7 @@ package core.basesyntax;
 
 public class RobotRoute {
     public void moveRobot(Robot robot, int toX, int toY) {
-        findRightX(robot, toX);
+        findRightX(robot, toX); // structure the code
         findRightY(robot, toY);
     }
 
