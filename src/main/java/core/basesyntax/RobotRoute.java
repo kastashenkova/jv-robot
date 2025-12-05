@@ -20,9 +20,9 @@ public class RobotRoute {
     private void findRightY(Robot robot, int toY) {
         while (robot.getY() != toY) {
             if (robot.getY() > toY) {
-                findRightDirection(robot, Direction.UP);
-            } else {
                 findRightDirection(robot, Direction.DOWN);
+            } else {
+                findRightDirection(robot, Direction.UP);
             }
             robot.stepForward();
         }
@@ -31,6 +31,18 @@ public class RobotRoute {
     private void findRightDirection(Robot robot, Direction correct) {
         while (robot.getDirection() != correct) {
             robot.turnLeft();
+        }
+    }
+
+    public static void main(String[] args) {
+        Robot robot = new Robot(Direction.UP, 1, 1);
+        int toX = 0;
+        int toY = 0;
+        RobotRoute route = new RobotRoute();
+        route.moveRobot(robot, toX, toY);
+        System.out.println("Finding the route...");
+        if (robot.getX() == toX && robot.getY() == toY) {
+            System.out.println("The route found!");
         }
     }
 }
